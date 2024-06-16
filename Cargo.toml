@@ -1,0 +1,33 @@
+[package]
+authors = ["Sascha Grunert <mail@saschagrunert.de>"]
+categories = ["web-programming"]
+description = "A web application completely written in Rust"
+documentation = "https://docs.rs/webapp"
+homepage = "https://github.com/saschagrunert/webapp.rs"
+keywords = ["web", "app", "webapp", "wasm", "webassembly"]
+license = "MIT"
+name = "webapp"
+readme = "README.md"
+repository = "https://github.com/saschagrunert/webapp.rs"
+version = "1.0.0"
+edition = "2018"
+
+[badges]
+circle-ci = { repository = "saschagrunert/webapp.rs", branch = "master" }
+codecov = { repository = "saschagrunert/webapp.rs", branch = "master", service = "github" }
+maintenance = { status = "actively-developed" }
+
+[dependencies]
+diesel = { version = "1.4.8", optional = true }
+anyhow = "1.0.51"
+serde = { version = "1.0.147", features = ["derive"] }
+toml = "0.5.8"
+
+[features]
+backend = ["diesel"]
+
+[workspace]
+members = [
+    "backend",
+    "frontend",
+]
